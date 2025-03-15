@@ -85,6 +85,7 @@ CNNs are widely used in **computer vision** applications such as object detectio
 
 st.markdown("### **Training Workflow**")
 st.markdown("In this project, we use **CNN + ResNet50 model** for image classification.")
+st.image("Layer.jpg", caption="Fully Connected Layer Structure")
 
 st.markdown("### **Activation Functions Used**")
 st.markdown("""
