@@ -147,7 +147,7 @@ with st.echo():
                          validation_data=(test_images, test_labels),
                          callbacks=[early_stop])
 
-st.markdown("## 📌 6. Model Performance Evaluation")
+st.markdown("## 📌 5. Model Performance Evaluation")
 
 st.markdown("### 🔹 Model Accuracy")
 st.image("Accuracy.png")
