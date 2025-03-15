@@ -8,4 +8,4 @@ pickle-mixin
 seaborn
 mlxtend
 scipy
-opencv
+opencv-python
