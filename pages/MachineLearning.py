@@ -6,17 +6,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
-# โหลด Wine Dataset
 wine = load_wine()
 df = pd.DataFrame(wine.data, columns=wine.feature_names)
 df['target'] = wine.target
 
-# แสดงข้อมูล Wine Dataset
 st.title('Wine Dataset with Model Predictions')
 st.write("### Wine Dataset")
 st.dataframe(df)
 
-# ทฤษฐี KNN SVM RANDOM_TREE
 st.header('K-Nearest Neighbors (KNN)')
 
 st.write("""
@@ -40,10 +37,8 @@ st.image('Distance_KNN.png' , caption="Distance_KNN")
 st.write("### Example")
 st.write("If we have weather data like temperature and humidity, we can use KNN to predict whether tomorrow will be a sunny day or a rainy day based on historical data.")
 
-# Image space for KNN (To insert the image later)
 st.image('Weather_KNN.png', caption="Weather_KNN")
 
-# **SVM** Explanation
 st.header('Support Vector Machine (SVM)')
 
 st.write("""
@@ -62,7 +57,6 @@ This allows SVM to handle non-linear data by transforming the feature space.
 SVM allows some misclassification when the data is noisy or difficult to separate by introducing a regularization parameter **C**, which controls how much misclassification is allowed.
 """)
 
-# Image space for SVM (To insert the image later)
 st.image('Soft_margin_SVM.png', caption="SVM Image will be inserted here")
 
 
@@ -78,7 +72,6 @@ st.write("""
 It is highly effective for handling complex data and can handle both high-dimensional and non-linear data efficiently.
 """)
 
-# แสดงขั้นตอนการเตรียมข้อมูล
 st.header("Data Preparation")
 
 st.write("""
@@ -93,8 +86,8 @@ st.write("""
 In this step, we separate the data into **features (X)**, which are the chemical properties of the wines, and **target (y)**, which is the classification of the wine type (Class 0, Class 1, or Class 2).
 """)
 with st.echo():
-    X = df.drop(columns=['target'])  # Features
-    y = df['target']  # Target (Wine Type)
+    X = df.drop(columns=['target'])  
+    y = df['target']  
 
 st.write(f"Features (X): {X.columns.tolist()}")
 st.write(f"Target (y): {y.name}")
@@ -139,23 +132,22 @@ st.write("#### Step 1: Support Vector Machine (SVM)")
 with st.echo():
     from sklearn.svm import SVC
     svm_model = SVC(kernel='linear', C=1.0)
-    svm_model.fit(X_train_scaled, y_train)  # Train the SVM model
+    svm_model.fit(X_train_scaled, y_train)  
 
 st.write("#### Step 2: K-Nearest Neighbors (KNN)")
 with st.echo():
     from sklearn.neighbors import KNeighborsClassifier
-    k_value = st.slider("Select k for KNN", min_value=1, max_value=20, value=5)  # User can select k
+    k_value = st.slider("Select k for KNN", min_value=1, max_value=20, value=5) 
     knn_model = KNeighborsClassifier(n_neighbors=k_value)
-    knn_model.fit(X_train_scaled, y_train)  # Train the KNN model
+    knn_model.fit(X_train_scaled, y_train) 
 
 st.write("#### Step 3: Random Forest")
 
 with st.echo():
     from sklearn.ensemble import RandomForestClassifier
-    n_estimators = st.slider("Select n_estimators for Random Forest", min_value=10, max_value=200, value=100)  # User can select n_estimators
+    n_estimators = st.slider("Select n_estimators for Random Forest", min_value=10, max_value=200, value=100)
     rf_model = RandomForestClassifier(n_estimators=n_estimators, random_state=42)
-    rf_model.fit(X_train_scaled, y_train)  # Train the Random Forest model
-
+    rf_model.fit(X_train_scaled, y_train)
 
 st.write("""
 ### Data Source:
