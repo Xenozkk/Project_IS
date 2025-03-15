@@ -10,3 +10,4 @@ mlxtend
 scipy
 opencv-python
 opencv-python-headless
+cv2
