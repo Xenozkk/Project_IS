@@ -8,7 +8,7 @@ import cv2  # type: ignore
 model = load_model('Predict_Num3.keras')
 
 def load_data():
-    df = pd.read_csv('mnist_test.csv')
+    df = pd.read_csv('mnist_dataset.csv')
     return df
 
 def random_image_from_csv(df):
