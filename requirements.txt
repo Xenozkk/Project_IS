@@ -9,3 +9,4 @@ seaborn
 mlxtend
 scipy
 opencv-python
+opencv-python-headless
